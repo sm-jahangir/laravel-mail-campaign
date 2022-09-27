@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CampaignController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::view('email-campaign', 'email-campaign');
+Route::post('mail-store', [CampaignController::class, 'store'])->name('campaign.store');
