@@ -8,6 +8,7 @@ use App\Models\Campaign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Exception;
 
 class CampaignController extends Controller
 {
@@ -18,7 +19,8 @@ class CampaignController extends Controller
      */
     public function index()
     {
-    
+        $campaigns = Campaign::all();
+        return view('campaign-table', compact('campaigns'));
     }
 
     /**
@@ -26,9 +28,28 @@ class CampaignController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function smsSent()
     {
-        //
+        try {
+            $basic  = new \Vonage\Client\Credentials\Basic("aa73aa29", "pskvB9yrcIAIdHD9");
+            $client = new \Vonage\Client($basic);
+
+            $response = $client->sms()->send(
+                new \Vonage\SMS\Message\SMS("8801571258216", 'Jahangir', 'A text message sent using the Nexmo SMS API')
+            );
+
+            $message = $response->current();
+
+            if ($message->getStatus() == 0) {
+                echo "The message was sent successfully\n";
+            } else {
+                echo "The message failed with status: " . $message->getStatus() . "\n";
+            }
+
+            dd('SMS Sent Successfully.');
+        } catch (Exception $e) {
+            dd("Error: ". $e->getMessage());
+        }
     }
 
     /**
