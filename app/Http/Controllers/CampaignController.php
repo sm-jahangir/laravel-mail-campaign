@@ -45,7 +45,6 @@ class CampaignController extends Controller
             'subject' => $request->subject,
             'message' => $request->message,
             'scheduled_at' => $request->scheduled_at,
-            'sended_at' => $request->sended_at,
             'status' => $request->status,
         ]);
         // Mail Sent

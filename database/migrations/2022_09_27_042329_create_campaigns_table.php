@@ -20,6 +20,7 @@ class CreateCampaignsTable extends Migration
             $table->string('subject');
             $table->string('message');
             $table->timestamp('scheduled_at', 0)->nullable();
+            $table->timestamp('sended_at', 0)->nullable();
             $table->enum('status', ['PENDING', 'SENT'])->default('PENDING');
             $table->timestamps();
         });
