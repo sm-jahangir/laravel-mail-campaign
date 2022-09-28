@@ -24,3 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::view('email-campaign', 'email-campaign')->name('gmail.campaign');
 Route::post('mail-store', [CampaignController::class, 'store'])->name('campaign.store');
+Route::get('mail-all', [CampaignController::class, 'index'])->name('campaign.index');

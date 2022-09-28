@@ -44,16 +44,16 @@ class MailSend extends Command
     {
 
         // your schedule code
-        $campaigns = Campaign::where(function ($q) {
-            $q->where('status', '=', Campaign::PENDING);
-            $q->where('scheduled_at', '<=', Carbon::now());
-        })->get();
-
+        // $campaigns = Campaign::where(function ($q) {
+        //     $q->where('status', '=', 'PENDING');
+        //     $q->where('scheduled_at', '<=', Carbon::now());
+        // })->get();
+        $campaigns = Campaign::where('status', '=', 'PENDING')->whereDate('scheduled_at','<=', Carbon::now())->get();
         $users = User::all();
 
         foreach ($campaigns as $campaign) {
             if ($campaign) {
-                $campaign->status = Campaign::SENT;
+                $campaign->status = 'SENT';
                 $campaign->sended_at = Carbon::now();
                 $campaign->save();
 

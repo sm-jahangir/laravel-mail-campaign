@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Mail\CustomMail;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class CampaignController extends Controller
@@ -17,7 +18,7 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+    
     }
 
     /**
@@ -39,7 +40,7 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         // return $request;
-        $message = Campaign::create([
+        Campaign::create([
             'greeting' => $request->greeting,
             'title' => $request->title,
             'subject' => $request->subject,
