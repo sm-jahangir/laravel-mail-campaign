@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Campaign extends Model
 {
     use HasFactory;
+
+    const PENDING = 'PENDING';
+
+    /**
+     * STATUS: SENDED
+     */
+    const SENT = 'SENT';
+
+    
     protected $guarded = ['id'];
 }

@@ -44,13 +44,16 @@ class CampaignController extends Controller
             'title' => $request->title,
             'subject' => $request->subject,
             'message' => $request->message,
+            'scheduled_at' => $request->scheduled_at,
+            'sended_at' => $request->sended_at,
+            'status' => $request->status,
         ]);
         // Mail Sent
-        $users = User::all();
-        foreach ($users as $user)
-        {
-            Mail::to($user->email)->send(new CustomMail($message));
-        }
+        // $users = User::all();
+        // foreach ($users as $user)
+        // {
+        //     Mail::to($user->email)->send(new CustomMail($message));
+        // }
         // foreach (['taylor@example.com', 'dries@example.com'] as $recipient) {
         //     Mail::to($recipient)->send(new OrderShipped($order));
         // }
