@@ -27,8 +27,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::view('email-campaign', 'email-campaign')->name('gmail.campaign');
 Route::post('mail-store', [CampaignController::class, 'store'])->name('campaign.store');
+Route::post('campaign-stop/{id}', [CampaignController::class, 'stop'])->name('campaign.stop');
 Route::get('mail-all', [CampaignController::class, 'index'])->name('campaign.index');
 Route::get('send-sms', [CampaignController::class, 'smsSent']);
 
 // SMS Campaign
 Route::resource('message', SmsController::class);
+Route::post('message-stop/{id}', [SmsController::class, 'stop'])->name('message.stop');

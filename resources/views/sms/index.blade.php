@@ -36,14 +36,17 @@
                   </td> --}}
 
                   <td>
+                    <div class="d-flex">
                     <form method="POST" action="{{ route('message.destroy',$message->id) }}">
-                        @csrf
-                        @method('DELETE')
-                        {{-- <x-jet-danger-button
-                            type="submit"
-                            onclick="return confirm('Are you sure?')">Delete</x-jet-danger-button> --}}
-                            <button type="submit" class="btn btn-success btn-sm"> Delete</button>
-                    </form>
+                      @csrf
+                      @method('DELETE')
+                          <button type="submit" class="btn btn-success btn-sm"> Delete</button>
+                  </form>
+                  <form method="POST" action="{{ route('message.stop',$message->id) }}" class="ms-2">
+                      @csrf
+                          <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Pause Your Campaign</button>
+                  </form>
+                    </div>
                 </td>
 
                 </tr>

@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+  <div class="d-flex justify-content-between">
+    <div></div>
+    <div>
+      <a href="{{ route('gmail.campaign') }}" class="btn btn-success btn-lg">Create New Campaign</a>
+    </div>
+  </div>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -23,7 +29,11 @@
                   <td>{{ $campaign->sended_at }}</td>
                   <td>{{ $campaign->status }}</td>
                   <td>
-                    Delete
+               
+                    <form method="POST" action="{{ route('campaign.stop',$campaign->id) }}">
+                      @csrf
+                          <button type="submit" class="btn btn-success btn-sm"> Stop Campaign</button>
+                  </form>
                   </td>
                 </tr>
                 @endforeach

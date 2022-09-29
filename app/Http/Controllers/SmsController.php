@@ -56,7 +56,15 @@ class SmsController extends Controller
      */
     public function show(Sms $sms)
     {
-        //
+        return $sms;
+    }
+    public function stop($id)
+    {
+        $message = Sms::findOrFail($id);
+        $message->update([
+            'status' => 'PAUSE',
+        ]);
+        return back();
     }
 
     /**

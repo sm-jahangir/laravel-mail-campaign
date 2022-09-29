@@ -13,7 +13,7 @@
     <body class="container">
         <div>
             <ul class="nav navbar">
-                <li class="nav-link"> <a class="text-decoration-none" href="{{ route('gmail.campaign') }}">Mail Campaign</a></li>
+                <li class="nav-link"> <a class="text-decoration-none" href="{{ route('campaign.index') }}">Mail Campaign</a></li>
                 <li class="nav-link"> <a class="text-decoration-none" href="{{ route('message.index') }}">Message Campaign</a></li>
             </ul>
            

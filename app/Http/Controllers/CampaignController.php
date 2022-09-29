@@ -79,6 +79,14 @@ class CampaignController extends Controller
         //     Mail::to($recipient)->send(new OrderShipped($order));
         // }
 
+        return redirect()->route('campaign.index');
+    }
+    public function stop($id)
+    {
+        $campaign = Campaign::findOrFail($id);
+        $campaign->update([
+            'status' => 'PAUSE',
+        ]);
         return back();
     }
 
