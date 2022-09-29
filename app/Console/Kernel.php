@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->yearly();
         $schedule->command('mail:send')->everyMinute();
+        $schedule->command('message:send')->everyMinute();
         // $schedule->command('send:emails')->everyMinute();
     }
 
