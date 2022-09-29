@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\SmsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,6 @@ Route::view('email-campaign', 'email-campaign')->name('gmail.campaign');
 Route::post('mail-store', [CampaignController::class, 'store'])->name('campaign.store');
 Route::get('mail-all', [CampaignController::class, 'index'])->name('campaign.index');
 Route::get('send-sms', [CampaignController::class, 'smsSent']);
+
+// SMS Campaign
+Route::resource('message', SmsController::class);

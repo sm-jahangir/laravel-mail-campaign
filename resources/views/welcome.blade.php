@@ -29,7 +29,8 @@
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-                        <a href="{{ route('gmail.campaign') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Message Campaign</a>
+                        <a href="{{ route('gmail.campaign') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Mail Campaign</a>
+                        <a href="{{ route('message.index') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Message Campaign</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
