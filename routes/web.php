@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\CampaignController;
-use App\Http\Controllers\SmsController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SmsController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\CampaignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,4 @@ Route::get('send-sms', [CampaignController::class, 'smsSent']);
 // SMS Campaign
 Route::resource('message', SmsController::class);
 Route::post('message-stop/{id}', [SmsController::class, 'stop'])->name('message.stop');
+Route::get('/page/{slug}', [PageController::class, 'show']);

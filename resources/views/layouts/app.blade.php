@@ -42,6 +42,15 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{ route('message.index') }}">Message Campaign</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/page/about">About Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/page/contact-us">Contact Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/page/privacy-policy">Privacy Policy</a>
+						</li>
 					</ul>
 				</div>
 			</div>
