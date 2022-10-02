@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
+	<div class="container mt-5">
+
+		<h2 class="text-center mb-4">Gmail Campaign</h2>
+		<hr class="w-50 m-auto">
 		<div class="d-flex justify-content-between">
 			<div></div>
 			<div>
