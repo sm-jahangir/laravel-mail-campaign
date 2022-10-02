@@ -50,6 +50,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row m-auto">
+                            <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}" style="margin-left: 250px; margin-bottom:20px">
+                                <div class="col-md-6">
+                                    {!! app('captcha')->display() !!}
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
