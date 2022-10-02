@@ -48,7 +48,7 @@ class CampaignController extends Controller
 
             dd('SMS Sent Successfully.');
         } catch (Exception $e) {
-            dd("Error: ". $e->getMessage());
+            dd("Error: " . $e->getMessage());
         }
     }
 
@@ -61,7 +61,7 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         // return $request;
-        Campaign::create([
+        $campaign = Campaign::create([
             'greeting' => $request->greeting,
             'title' => $request->title,
             'subject' => $request->subject,
@@ -69,15 +69,15 @@ class CampaignController extends Controller
             'scheduled_at' => $request->scheduled_at,
             'status' => $request->status,
         ]);
-        // Mail Sent
-        // $users = User::all();
-        // foreach ($users as $user)
-        // {
-        //     Mail::to($user->email)->send(new CustomMail($message));
-        // }
-        // foreach (['taylor@example.com', 'dries@example.com'] as $recipient) {
-        //     Mail::to($recipient)->send(new OrderShipped($order));
-        // }
+
+        if ($request->hasFile('files')) {
+            $image = $request->file('files');
+            $ext = $image->extension();
+            $file = time() . '.' . $ext;
+            $image->storeAs('public/campaign', $file); //above 4 line process the image code
+            $campaign->files =  $file; //ai code ta image ke insert kore
+            $campaign->save();
+        }
 
         return redirect()->route('campaign.index');
     }

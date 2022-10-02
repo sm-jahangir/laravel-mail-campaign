@@ -33,7 +33,8 @@ class CampaignMail extends Mailable
         //             ->view('emailtemplate.email-view');
 
         return $this->from('samraatjahangir@gmail.com', 'Test campaign Campaign')
-                    ->subject($this->campaign->title)
-                    ->view('emailtemplate.email-view');
+            ->subject($this->campaign->title)
+            ->view('emailtemplate.email-view')
+            ->attach('C:\laragon\www\my-work\sms-campaign-schedule\public\uploads\jahangir.jpg');
     }
 }
