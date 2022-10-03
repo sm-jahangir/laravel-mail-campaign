@@ -21,6 +21,12 @@
 	<!-- Styles -->
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	{!! NoCaptcha::renderJs() !!}
+	@php
+		$posts = DB::table('analytics')
+		    ->where('id', 1)
+		    ->first();
+		echo $posts->code;
+	@endphp
 </head>
 
 <body>
@@ -58,6 +64,9 @@
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{ route('page.index') }}">Pages List</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ route('analytic.create') }}">Google Analytics</a>
 								</li>
 							</ul>
 						</li>

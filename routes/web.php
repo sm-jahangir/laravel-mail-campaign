@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalyticController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,3 +40,4 @@ Route::resource('message', SmsController::class);
 Route::post('message-stop/{id}', [SmsController::class, 'stop'])->name('message.stop');
 Route::resource('page', PageController::class)->only('index', 'create', 'store', 'destroy');
 Route::get('/page/{slug}', [PageController::class, 'show']);
+Route::resource('analytic', AnalyticController::class);
