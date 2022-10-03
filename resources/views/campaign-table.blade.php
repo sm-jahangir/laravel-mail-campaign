@@ -9,6 +9,7 @@
 			<div></div>
 			<div>
 				<a href="{{ route('gmail.campaign') }}" class="btn btn-success btn-lg">Create New Campaign</a>
+				<a href="{{ route('campaign.export') }}" class="btn btn-warning btn-lg">Export Campaign</a>
 			</div>
 		</div>
 		<div class="table-responsive">

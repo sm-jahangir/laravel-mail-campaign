@@ -32,6 +32,8 @@ Route::post('campaign-stop/{id}', [CampaignController::class, 'stop'])->name('ca
 Route::get('mail-all', [CampaignController::class, 'index'])->name('campaign.index');
 Route::get('send-sms', [CampaignController::class, 'smsSent']);
 
+Route::get('campaign/export/', [CampaignController::class, 'export'])->name('campaign.export');
+
 // SMS Campaign
 Route::resource('message', SmsController::class);
 Route::post('message-stop/{id}', [SmsController::class, 'stop'])->name('message.stop');
