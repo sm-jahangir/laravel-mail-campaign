@@ -35,4 +35,5 @@ Route::get('send-sms', [CampaignController::class, 'smsSent']);
 // SMS Campaign
 Route::resource('message', SmsController::class);
 Route::post('message-stop/{id}', [SmsController::class, 'stop'])->name('message.stop');
+Route::resource('page', PageController::class)->only('index', 'create', 'store', 'destroy');
 Route::get('/page/{slug}', [PageController::class, 'show']);

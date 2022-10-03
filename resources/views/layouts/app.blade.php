@@ -42,14 +42,24 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{ route('message.index') }}">Message Campaign</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/page/about">About Us</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/page/contact-us">Contact Us</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/page/privacy-policy">Privacy Policy</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Pages
+							</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link" href="/page/about">About Us</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/page/contact-us">Contact Us</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/page/privacy-policy">Privacy Policy</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ route('page.index') }}">Pages List</a>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,7 +15,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::all();
+        return view('pages.index', compact('pages'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.form');
     }
 
     /**
@@ -35,7 +37,23 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        $pagestore = Page::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'body' => $request->body,
+            'status' => $request->status,
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $ext = $image->extension();
+            $file = time() . '.' . $ext;
+            $image->storeAs('public/page', $file); //above 4 line process the image code
+            $pagestore->image =  $file; //ai code ta image ke insert kore
+            $pagestore->save();
+        }
+        return redirect()->route('page.index');
     }
 
     /**
@@ -80,6 +98,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return back();
     }
 }
