@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AnalyticController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SmsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AnalyticController;
 use App\Http\Controllers\CampaignController;
 
 /*
@@ -41,3 +42,6 @@ Route::post('message-stop/{id}', [SmsController::class, 'stop'])->name('message.
 Route::resource('page', PageController::class)->only('index', 'create', 'store', 'destroy');
 Route::get('/page/{slug}', [PageController::class, 'show']);
 Route::resource('analytic', AnalyticController::class);
+
+Route::get('event-registration', [OrderController::class, 'register'])->name('paytm');
+Route::post('payment', [OrderController::class, 'order']);

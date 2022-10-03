@@ -25,7 +25,9 @@
 		$posts = DB::table('analytics')
 		    ->where('id', 1)
 		    ->first();
-		echo $posts->code;
+		if ($posts) {
+		    echo $posts->code;
+		}
 	@endphp
 </head>
 
@@ -67,6 +69,9 @@
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{ route('analytic.create') }}">Google Analytics</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ route('paytm') }}">Pay with PayTM</a>
 								</li>
 							</ul>
 						</li>

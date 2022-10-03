@@ -167,6 +167,7 @@ return [
          */
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Anand\LaravelPaytmWallet\PaytmWalletServiceProvider::class,
 
 
         /*
@@ -236,6 +237,9 @@ return [
         // Custom
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'PaytmWallet' => Anand\LaravelPaytmWallet\Facades\PaytmWallet::class,
+
+
 
 
 
